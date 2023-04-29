@@ -13,16 +13,16 @@ export class TodolistComponent implements OnInit{
   allData:Array<TodoData>=new Array<TodoData>();
   toggaleButton:boolean=false;
 
-  constructor( private data:CrudService, private toastr: ToastrService) {}
-
-  
+  constructor( private data:CrudService,
+               private toastr: ToastrService) {}
 
   ngOnInit() {
     this.task=new TodoData;
     this.getData();
-
   }
 
+
+  // ===================== DATA ADD METHOD  =====================
   addData(){
     if(this.task.taskName){
       
@@ -31,22 +31,20 @@ export class TodolistComponent implements OnInit{
           console.log("okkk" , res);
           this.getData();
           this.task=new TodoData;
-          
         },    
         error:(err)=>{
           console.log(err);
         },    
         complete:()=>{
-          
         }
       })
     }
     else{
       this.toastr.warning('plese enter your task');
-  
     }
   }
 
+   // ===================== DATA GET METHOD  =====================
   getData(){
     this.data.getTask().subscribe({
       next:(res:any)=>{
@@ -62,6 +60,7 @@ export class TodolistComponent implements OnInit{
     })
   }
 
+   // ===================== DATA DELETE METHOD  =====================
   deleteData(data:TodoData){
     this.data.deleteTask(data.id).subscribe({
       next:(res)=>{
@@ -77,11 +76,13 @@ export class TodolistComponent implements OnInit{
     })
   }
 
+   // ===================== DATA EDIT METHOD  =====================
    fillData(data:TodoData){
     this.task=data;
     this.toggaleButton=true;
    }
 
+   // ===================== DATA UPDATE METHOD  =====================
   updateData(){
     this.data.updateTask(this.task).subscribe({
       next:(res)=>{
@@ -89,15 +90,10 @@ export class TodolistComponent implements OnInit{
         this.task=new TodoData;
         this.toggaleButton=false;
         this.toastr.success('your data updated');
-
       },
       error:(err)=>{
         console.log(err);
       }
-      
     })
   }
-  
-
-
 }

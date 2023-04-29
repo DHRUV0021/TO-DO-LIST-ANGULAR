@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
 @import 'ngx-toastr/toastr';
 
 
@@ -14,8 +13,8 @@
 $color:red;
 $white:white;
 $green:green;
-
 $edit:rgb(75, 75, 75);
+
 .main-title{
     font-size: 50px;
     color:#000000;
@@ -29,7 +28,7 @@ $edit:rgb(75, 75, 75);
      justify-content: center;
      align-items: center;
 }
-.show-data {
+.show-data{
     margin-bottom: 30px;
 }
 
@@ -41,6 +40,7 @@ $edit:rgb(75, 75, 75);
   background-color: rgb(255, 255, 255);
   height:45px;
 }
+
 .delete:hover{
   background-color:$color;
   color:$white;
@@ -51,8 +51,8 @@ $edit:rgb(75, 75, 75);
     border: 1px solid rgb(27, 65, 38);
     border-radius: 10px;
     height:45px;
-
 }
+
 .edit:hover{
     background-color:green;
     color:$white;
@@ -66,6 +66,7 @@ $edit:rgb(75, 75, 75);
         margin: 0;
         padding: 0;
     }
+
     p{
         font-size: 2rem;
     }
@@ -77,12 +78,12 @@ $edit:rgb(75, 75, 75);
         background-color: #f7f7f7;
         margin-top:-10px;
     }
+
     .navbar .container-fluid .navbar-brand img{
         width: 200px;
         height: 70px;
         margin-top:20px;
     }
-
 }
 
 
