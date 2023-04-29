@@ -1,0 +1,57 @@
+<!-- -----------------------------------------header -->
+
+
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <div class="container-fluid ">
+    <a class="navbar-brand" href="#"><img src="../../assets/gurukul logo.png" alt="" width="140" height="70"
+        class="d-inline-block ms-5  align-text-top "></a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <p class="text-center main-title">To-Do-List</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ----------------------------------------------------add -->
+<div class="container-fluid  mt-5">
+  <form class="row ">
+    <div class="col-auto  m-auto d-flex justify-content:center ; justify-items:center">
+      <input type="text" class="form-control" name="task"  [(ngModel)]="task.taskName" placeholder="Enter your Task"
+        style="width: 500px; height: 50px;">
+      <button type="button" class="btn btn-primary ms-2 plus" *ngIf="!toggaleButton"  (click)="addData()">
+        <h1>+</h1>
+      </button>
+      <button type="button" class="btn btn-primary ms-2 plus" *ngIf="toggaleButton" (click)="updateData()">
+        <h1>U</h1>
+      </button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- ---------------------------------------------------------show data -->
+
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-auto m-auto">
+
+      <div class="d-flex flex-column mb-3  text-start" *ngFor="let i of allData; let ii = index" style="width:550px">
+
+        <div class="p-2 mb-4  bg-light d-flex justify-content:center show-data " style="margin-bottom: 10px;">
+          <p><b>{{ii+1}}.</b>&nbsp; &nbsp; &nbsp;{{i.taskName}}</p>
+          <button (click)="fillData(i)" class="btn edit ms-auto" ><i class="bi bi-pencil-square"></i></button>
+          <button (click)="deleteData(i)" class=" btn delete ms-2"><i class="bi bi-trash-fill  "></i></button>
+        </div>
+
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
